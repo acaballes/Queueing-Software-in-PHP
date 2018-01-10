@@ -1,0 +1,131 @@
+body {
+    /*
+    padding-top: 60px;
+    padding-bottom: 40px;
+    */
+}
+
+.zf-green {
+    color: #68b604;
+}
+
+.btn-success {
+    background-color: #57a900;
+    background-image: -moz-linear-gradient(top, #70d900, #57a900);
+    background-image: -ms-linear-gradient(top, #70d900, #57a900);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#70d900), to(#57a900));
+    background-image: -webkit-linear-gradient(top, #70d900, #57a900);
+    background-image: -o-linear-gradient(top, #70d900, #57a900);
+    background-image: linear-gradient(top, #70d900, #57a900);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#70d900', endColorstr='#57a900', GradientType=0);
+}
+
+.btn-success:hover,
+.btn-success:active,
+.btn-success.active,
+.btn-success.disabled,
+.btn-success[disabled] {
+    background-color: #57a900;
+}
+
+div.container a.navbar-brand > img {
+    display: inline;
+    margin-right: 4px;
+    margin-top: -2px;
+}
+
+/**** FOR QUEUE VIEW STYLES ***/
+.queue-view-wrapper {
+    padding: 8px !important;
+}
+
+.announcement {
+    position:absolute;
+    bottom: 0;
+    width:100%;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.list-header {
+    font-size: 43px;
+    font-weight: bold;
+}
+
+.queue-lists {
+    font-weight: bold;
+    font-size: 21px;
+}
+
+/*** CUSTOMER VIEW STYLES ***/
+.customer-view-wrapper, .priority-number {
+    margin-top: 10%;
+}
+
+/*** TILES STYLES ***/
+
+.tile {
+  width: 100%;
+  display: inline-block;
+  box-sizing: border-box;
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 30px;
+  height: 200px;
+  cursor: pointer;
+}
+.tile .title {
+  margin-top: 0px;
+}
+.tile.purple, .tile.blue, .tile.red, .tile.orange, .tile.green {
+  color: #fff;
+}
+.tile.purple {
+  background: #5133ab;
+}
+.tile.purple:hover {
+  background: #3e2784;
+}
+.tile.red {
+  background: #ac193d;
+}
+.tile.red:hover {
+  background: #7f132d;
+}
+.tile.green {
+  background: #00a600;
+}
+.tile.green:hover {
+  background: #007300;
+}
+.tile.blue {
+  background: #2672ec;
+}
+.tile.blue:hover {
+  background: #125acd;
+}
+.tile.orange {
+  background: #dc572e;
+}
+.tile.orange:hover {
+  background: #b8431f;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #section-to-print, #section-to-print * {
+    visibility: visible;
+  }
+  #section-to-print {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+
+@media print {
+   body *, #main * { display:none; }
+   #main, #main #printarea, #main #printarea * { display:block; }
+}

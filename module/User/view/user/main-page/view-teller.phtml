@@ -1,0 +1,29 @@
+<div class="table-responsive">
+  <h2>List of Tellers</h2>
+  <table class="table">
+    <thead class="thead-inverse bg-primary">
+      <tr>
+        <th>ID #</th>
+        <th>Teller Name</th>
+        <th>Assigned User</th>
+        <th>Accepted Transactions</th>
+      </tr>
+    </thead>
+    <tbody>
+        <?php if(!empty($tellers)): ?>
+            <?php foreach ($tellers as $teller): ?>
+                <tr>
+                    <th scope="row"><?= $teller['id'] ?></th>
+                    <td><?= $teller['name'] ?></td>
+                    <td><?= $teller['user'] ?></td>
+                    <td><?= $teller['transactions_accepted'] ?></td>
+                </tr>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <tr>
+                <td colspan="4">No Tellers Found</td>
+            </tr>
+        <?php endif; ?>
+    </tbody>
+  </table>
+</div>

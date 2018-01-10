@@ -1,0 +1,20 @@
+<div class="add-user-wrapper">
+	<div class="row">
+		<div class="col-lg-6 col-lg-offset-3">
+			<h2>Edit Announcement</h2>
+			<form method="post" action="<?= $this->url('main-page', ['action' => 'edit-announcement', 'id' => $id]) ?>">
+				<div class="form-group">
+		    		<label for="title">Title</label>
+		    		<input type="text" name="title" value="<?= $announcement['title'] ?>" class="form-control" id="title" placeholder="Enter title">
+		  		</div>
+		  		<div class="form-group">
+		    		<label for="description">Description</label>
+		    		<textarea rows="10" name="description" class="form-control" id="description" placeholder="Enter description"><?= $announcement['description'] ?></textarea>
+		  		</div>
+			  	<button type="submit" class="btn btn-primary">Update</button>
+			  	<a href="<?= $this->url('main-page', ['action' => 'manage-announcement']) ?>" type="submit" class="btn btn-default">Cancel</a>
+			</form>
+			</form>
+		</div>
+	</div>
+</div>

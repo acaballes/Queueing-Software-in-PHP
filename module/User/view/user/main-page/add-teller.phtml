@@ -1,0 +1,29 @@
+<div class="add-user-wrapper">
+	<div class="row">
+		<div class="col-lg-4 col-lg-offset-4">
+			<h2>Add New Teller</h2>
+			<form method="post" action="<?= $this->url('main-page', ['action'=>'add-teller']) ?>">
+				<div class="form-group">
+		    		<label for="teller">Teller / Window Name</label>
+		    		<input type="text" name="name" class="form-control" id="teller" placeholder="Enter name" required>
+		  		</div>
+		  		<div class="form-group">
+				    <label class="control-label" for="rolename">Accepted Transactions</label>
+			        <select id="dates-field2" name="transactions[]" class="multiselect-ui form-control" multiple="multiple" required>
+			        	<?php foreach ($transactions as $transaction): ?>
+				            <option value="<?= $transaction['id'] ?>"><?= $transaction['name'] ?></option>
+			            <?php endforeach; ?>
+			        </select>
+				</div>
+			  	<button type="submit" class="btn btn-primary">Add Teller</button>
+			</form>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+$(function() {
+    $('.multiselect-ui').multiselect({
+        includeSelectAllOption: true
+    });
+});
+</script>

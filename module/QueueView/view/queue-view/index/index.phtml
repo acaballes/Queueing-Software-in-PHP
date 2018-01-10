@@ -1,0 +1,89 @@
+<div class="queue-view-wrapper">
+	<div class="row">
+		<div class="col-sm-7">
+			<video width="100%" height="50%" autoplay loop>
+			  	<source src="vids/short.mp4" type="video/mp4">
+				Your browser does not support the video tag.
+			</video>
+		</div>
+		<div class="col-sm-5">
+			<div class="row">
+				<div class="col-lg-11 text-center">
+					<h1 class="list-header">Now Serving</h1>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-11 text-center">
+					<ul class="list-group queue-lists">
+						<?php if (!empty($tellers)): ?>
+							<?php foreach ($tellers as $teller): ?>
+						  		<li class="list-group-item text-primary"><span class="pull-left"><?= $teller['name'] ?></span><span class="glyphicon glyphicon-arrow-right"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="pn-<?= $teller['id'] ?>"></span></li>
+						  	<?php endforeach; ?>
+						<?php else: ?>
+						  		<li class="list-group-item text-primary">No tellers found.</li>
+						<?php endif; ?>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-11 text-center">
+					<h1 class="list-header">Next in Line</h1>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-11 text-center">
+					<ul class="list-group queue-lists">
+					  	<li class="list-group-item text-primary inline-priorities"><?php echo $inline; ?></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row announcement">
+		<hr></hr>
+		<div class="col-sm-12">
+
+			<marquee><?= $anouncements ?></marquee>
+		</div>
+</div>
+
+<script>
+	updateData();
+	function updateData() {
+		setTimeout(function() {
+			$.ajax({ url: '/update', success: function(response) {
+				var parseData = $.parseJSON(response);
+				var tellers = parseData.tellers;
+				// next in line priority numbers
+				$(".inline-priorities").html(parseData.in_line);
+				// clear all tellers assigned
+				<?php if (!empty($tellers)): ?>
+					<?php foreach ($tellers as $teller): ?>
+						$("#pn-<?= $teller['id'] ?>").html('');
+					<?php endforeach; ?>
+				<?php endif; ?>
+				if (tellers.length > 0) {
+					var teller_ids = [];
+					// tellers currently serving
+					$.each(tellers, function(index, item) {
+						var pnumber = (item.is_sc == '1' || item.is_sc == 1) ? 'P'+item.pnumber : item.pnumber;
+						$("#pn-" + item.id).html(pnumber);
+						var unique_id = item.id + '-'+pnumber;
+						// play sound
+						if ($("#pn-" + item.id).attr('played') == unique_id) {
+							
+						}
+						else {
+							//addd audio played attribute
+							$("#pn-" + item.id).attr('played', unique_id);
+							var audio = new Audio('/audio/teller.wav');
+							audio.play();
+						}
+						teller_ids.push(item.id);	
+					});
+				}
+				updateData();
+			}});
+		}, 1000);
+	}
+</script>

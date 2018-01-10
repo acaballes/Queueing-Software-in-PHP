@@ -1,0 +1,34 @@
+<div class="customer-view-wrapper">
+	<div class="row">
+	    <div class="col-lg-12 text-center">
+	    	<h1>Select Your Transaction</h1>
+	    </div>
+	</div>
+	<div class="row">
+	    <div class="col-lg-6 col-lg-offset-3 text-center">
+	    	<!--<form action="<?php //$this->url('priority-number', ['type' => $type]) ?>" method="GET">-->
+	    	<div class="btn-group-vertical">
+		        <!--<select id="dates-field2" name="transaction" class="transaction-select form-control" onchange="selectTransaction()" required>
+		        	<option value=''>-- None Selected --</option>-->
+		        	<?php foreach ($transactions as $transaction): ?>
+			            <a style="width: 400px;" class="btn btn-lg btn-primary" href="<?= $this->url('priority-number', ['type' => $type]) . '?transaction=' . $transaction['id'] . '&transaction_str=' . urlencode($transaction['name']) ?>"><?= $transaction['name'] ?></a>
+		            <?php endforeach; ?>
+		        <!--</select>-->
+		        <input type="hidden" name="transaction_str" id="transaction_str">
+			</div>
+		  	<!--<button type="submit" class="btn btn-primary">Continue</button>-->
+	    </div>   
+	</div>
+</div>
+
+<script type="text/javascript">
+$(function() {
+    $('.multiselect-ui').multiselect({
+        includeSelectAllOption: true
+    });
+});
+
+function selectTransaction() {
+	$("#transaction_str").val($('.transaction-select option:selected').text());
+}
+</script>

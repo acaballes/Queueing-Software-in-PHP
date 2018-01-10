@@ -1,0 +1,28 @@
+<?php if ($result[0]): ?>
+	<div class="row">
+		<div class="col-lg-6 col-lg-offset-3">
+			<div class="panel panel-default">
+				<div class="panel-body text-center">
+					<h2>Your Current Transaction</h2>
+					<h1><strong>Priority number <?= $result[1]['is_sc'] == 1 ? 'P' : '' ?><?= $result[1]['pnumber'] ?></strong></h1>
+				</div>
+			</div>
+			<div class="row text-center">
+				<a href="/guest/done/<?= $result[1]['id'] ?>" class="btn btn-lg btn-primary">DONE</a>
+			</div>
+		</div>
+	</div>
+<?php else: ?>
+	<div class="row">
+		<div class="col-lg-6 col-lg-offset-3">
+			<div class="panel panel-default">
+				<div class="panel-body text-center">
+					<h2>This Priority Number has been taken or this is Done.</h2>
+				</div>
+			</div>
+			<div class="row text-center">
+				<a href="/guest" class="btn btn-lg btn-default">BACK</a>
+			</div>
+		</div>
+	</div>
+<?php endif; ?>

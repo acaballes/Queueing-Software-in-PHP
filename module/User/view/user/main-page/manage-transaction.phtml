@@ -1,0 +1,30 @@
+<div class="table-responsive">
+  <h2>Manage Transactions</h2>
+  <table class="table">
+    <thead class="thead-inverse bg-primary">
+      <tr>
+        <th>ID #</th>
+        <th>Transaction Name</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <?php if(!empty($transactions)): ?>
+            <?php foreach ($transactions as $transaction): ?>
+                <tr>
+                    <th scope="row"><?= $transaction['id'] ?></th>
+                    <td><?= $transaction['name'] ?></td>
+                    <td>
+                    <a href="<?= $this->url('main-page', ['action' => 'edit-transaction', 'id' => $transaction['id']]) ?>">Edit</a> | 
+                    <a href="#" class="delete-btn" data-id="<?= $transaction['id'] ?>" data-url="/main/delete-transaction/<?= $transaction['id'] ?>">Delete</a>
+                  </td>
+                </tr>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <tr>
+                <td colspan="3">No list Found</td>
+            </tr>
+        <?php endif; ?>
+    </tbody>
+  </table>
+</div>

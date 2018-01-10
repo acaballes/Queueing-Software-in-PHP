@@ -1,0 +1,16 @@
+<div class="add-user-wrapper">
+	<div class="row">
+		<div class="col-lg-4 col-lg-offset-4">
+			<h2>Edit Transaction</h2>
+			<form method="post" action="<?= $this->url('main-page', ['action'=>'edit-transaction', 'id' => $id]) ?>">
+				<div class="form-group">
+		    		<label for="transaction">Transaction Name</label>
+		    		<input type="text" name="name" value="<?= $transaction['name'] ?>" class="form-control" id="transaction" placeholder="Enter name">
+		  		</div>
+		  		
+			  	<button type="submit" class="btn btn-primary">Update Transaction</button>
+			  	<a href="<?= $this->url('main-page', ['action' => 'manage-transaction']) ?>" type="submit" class="btn btn-default">Cancel</a>
+			</form>
+		</div>
+	</div>
+</div>

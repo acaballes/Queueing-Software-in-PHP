@@ -1,0 +1,14 @@
+<div class="add-user-wrapper">
+	<div class="row">
+		<div class="col-lg-6 col-lg-offset-3">
+			<h2>Add New Transaction</h2>
+			<form method="post" action="<?= $this->url('main-page', ['action' => 'add-transaction']) ?>">
+				<div class="form-group">
+		    		<label for="name">Transaction Name</label>
+		    		<input type="text" name="name" class="form-control" id="name" placeholder="e.g Water Bill">
+		  		</div>
+			  	<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		</div>
+	</div>
+</div>

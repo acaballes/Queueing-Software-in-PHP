@@ -1,0 +1,58 @@
+<style>
+	@media print {
+	  body * {
+	    visibility: hidden;
+	  }
+	  #section-to-print, #section-to-print * {
+	    visibility: visible;
+	  }
+	  #section-to-print {
+	    position: absolute;
+	    left:42%;
+	    top: 0px;
+	    margin-top:0px;
+	    font-size: 55px;
+	  }
+	}
+</style>
+<?php if (!$isAllowed): ?>
+	<div class='text-center'><h1>Your not Allowed to Access this Page!</h1></div>
+<?php else: ?>
+	<div class="row priority-number">
+		<div class="col-md-4 col-md-offset-4 text-center">
+			<div class="tile orange main">
+	        	<h3 class="title">Your Priority Number</h3>
+	        	<h1 id="section-to-print"><div><?= $priorityNumber ?></div></h1>
+	        	<h4 class="printed-text" style="display:none;">Please get your printed priority number</h4>
+	        	<div>
+	        		<a href="<?= $this->url('customer') ?>" class="btn btn-lg btn-primary done" style="display:none;">Done</a>
+	        		<a onclick="printNumber()" class="btn btn-lg btn-primary print-btn">Print</a>
+	        	</div>
+	     	 </div>
+		</div>
+	</div>
+<?php endif; ?>
+<script>
+	function printNumber() {
+		window.print();
+		//hide the print button and show done
+		$(".done").css('display', 'block');
+		$(".print-btn").css('display', 'none');
+		$(".printed-text").css('display', 'block');
+	}
+
+	if (window.matchMedia) {
+        var mediaQueryList = window.matchMedia('print');
+        mediaQueryList.addListener(function(mql) {
+            if (mql.matches) {
+                beforePrint();
+            } else {
+                //afterPrint();
+            }
+        });
+    }
+
+	function beforePrint() {
+		//console.log($('#print-preview').html());
+	}
+</script>

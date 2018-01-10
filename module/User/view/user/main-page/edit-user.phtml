@@ -1,0 +1,34 @@
+<div class="add-user-wrapper">
+	<div class="row">
+		<div class="col-lg-4 col-lg-offset-4">
+			<h2>Edit User</h2>
+			<form method="post" action="<?= $this->url('main-page', ['action' => 'edit-user', 'id' => $id]) ?>">
+				<div class="form-group">
+		    		<label for="firstname">Firstname</label>
+		    		<input type="text" class="form-control" value="<?= $user['firstname'] ?>" id="firstname" name="firstname" placeholder="Enter firstname" required>
+		  		</div>
+		  		<div class="form-group">
+		    		<label for="lastname">Lastname</label>
+		    		<input type="text" value="<?= $user['lastname'] ?>" name="lastname" class="form-control" id="lastname" placeholder="Enter lastname" required>
+		  		</div>
+		  		<div class="form-group">
+		    		<label for="username">Username</label>
+		    		<input type="text" value="<?= $user['username'] ?>" name="username" class="form-control" id="username" placeholder="Enter username" required>
+		  		</div>
+			  	<div class="form-group">
+			    	<label for="teller">Assigned To</label>
+			    	<select id="teller" name="teller" class="form-control form-control-lg" required>
+					  	<option value="">Select a Teller / Window</option>
+					  	<?php if (!empty($tellers)): ?>
+					  		<?php foreach ($tellers as $teller): ?>
+					  			<option value="<?= $teller['id'] ?>" <?php if ($teller['id'] == $user['teller_assigned']) { echo 'selected="selected"'; } ?>><?= $teller['name'] ?></option>
+					  		<?php endforeach; ?>
+					  	<?php endif; ?>
+					</select>
+			  	</div>
+			  	<button type="submit" class="btn btn-primary">Update User</button>
+			  	<a href="<?= $this->url('main-page', ['action' => 'manage-user']) ?>" type="submit" class="btn btn-default">Cancel</a>
+			</form>
+		</div>
+	</div>
+</div>

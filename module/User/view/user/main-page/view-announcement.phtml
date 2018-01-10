@@ -1,0 +1,27 @@
+<div class="table-responsive">
+  <h2>List of Announcement</h2>
+  <table class="table">
+    <thead class="thead-inverse bg-primary">
+      <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php if(!empty($announcements)): ?>
+          <?php foreach ($announcements as $announcement): ?>
+              <tr>
+                  <th scope="row"><?= $announcement['id'] ?></th>
+                  <td><?= $announcement['title'] ?></td>
+                  <td><?= $announcement['description'] ?></td>
+              </tr>
+          <?php endforeach; ?>
+      <?php else: ?>
+          <tr>
+              <td colspan="3">No Announcements Found</td>
+          </tr>
+      <?php endif; ?>
+    </tbody>
+  </table>
+</div>

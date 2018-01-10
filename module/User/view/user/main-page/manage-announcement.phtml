@@ -1,0 +1,32 @@
+<div class="table-responsive">
+  <h2>Manage Announcement</h2>
+  <table class="table">
+    <thead class="thead-inverse bg-primary">
+      <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php if(!empty($announcements)): ?>
+        <?php foreach ($announcements as $announcement): ?>
+            <tr>
+                <th scope="row"><?= $announcement['id'] ?></th>
+                <td><?= $announcement['title'] ?></td>
+                <td><?= $announcement['description'] ?></td>
+                <td>
+                  <a href="<?= $this->url('main-page', ['action' => 'edit-announcement', 'id' => $announcement['id']]) ?>">Edit</a> | 
+                  <a href="#" class="delete-btn" data-id="<?= $announcement['id'] ?>" data-url="/main/delete-announcement/<?= $announcement['id'] ?>">Delete</a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <tr>
+            <td colspan="4">No Announcements Found</td>
+        </tr>
+    <?php endif; ?>
+    </tbody>
+  </table>
+</div>

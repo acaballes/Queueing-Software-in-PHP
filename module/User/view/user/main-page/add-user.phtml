@@ -1,0 +1,37 @@
+<div class="add-user-wrapper">
+	<div class="row">
+		<div class="col-lg-4 col-lg-offset-4">
+			<h2>Add New User</h2>
+			<form method="post" action="<?= $this->url('main-page', ['action' => 'add-user']) ?>">
+				<div class="form-group">
+		    		<label for="firstname">Firstname</label>
+		    		<input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter firstname" required>
+		  		</div>
+		  		<div class="form-group">
+		    		<label for="lastname">Lastname</label>
+		    		<input type="text" name="lastname" class="form-control" id="lastname" placeholder="Enter lastname" required>
+		  		</div>
+		  		<div class="form-group">
+		    		<label for="username">Username</label>
+		    		<input type="text" name="username" class="form-control" id="username" placeholder="Enter username" required>
+		  		</div>
+			  	<div class="form-group">
+			    	<label for="password">User Password</label>
+			    	<input type="text" name="password" class="form-control" id="password" placeholder="Password"required>
+			  	</div>
+			  	<div class="form-group">
+			    	<label for="teller">Assigned To</label>
+			    	<select id="teller" name="teller" class="form-control form-control-lg" required>
+					  	<option value="">Select a Teller / Window</option>
+					  	<?php if (!empty($tellers)): ?>
+					  		<?php foreach ($tellers as $teller): ?>
+					  			<option value="<?= $teller['id'] ?>"><?= $teller['name'] ?></option>
+					  		<?php endforeach; ?>
+					  	<?php endif; ?>
+					</select>
+			  	</div>
+			  	<button type="submit" class="btn btn-primary">Add User</button>
+			</form>
+		</div>
+	</div>
+</div>

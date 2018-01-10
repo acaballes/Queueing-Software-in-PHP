@@ -1,0 +1,36 @@
+<div class="table-responsive">
+  <h2>Manage Users</h2>
+  <table class="table">
+    <thead class="thead-inverse bg-primary">
+      <tr>
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+        <th>Assigned Teller</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php if(!empty($users)): ?>
+          <?php foreach ($users as $user): ?>
+              <tr>
+                  <th scope="row"><?= $user['id'] ?></th>
+                  <td><?= $user['firstname'] ?></td>
+                  <td><?= $user['lastname'] ?></td>
+                  <td><?= $user['username'] ?></td>
+                  <td><?= !empty($user['name']) ? $user['name'] : '<i>Not assigned</i>' ?>
+                  <td>
+                    <a href="<?= $this->url('main-page', ['action' => 'edit-user', 'id' => $user['id']]) ?>">Edit</a> | 
+                    <a href="#" class="delete-btn" data-id="<?= $user['id'] ?>" data-url="/main/delete-user/<?= $user['id'] ?>">Delete</a>
+                  </td>
+              </tr>
+          <?php endforeach; ?>
+      <?php else: ?>
+          <tr>
+              <td colspan="6">No Users Found</td>
+          </tr>
+      <?php endif; ?>
+    </tbody>
+  </table>
+</div>

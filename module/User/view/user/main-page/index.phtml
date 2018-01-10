@@ -1,0 +1,52 @@
+<div class="main-page-wrapper">
+	<div class="row">
+		<div class="col-md-4">
+			<h2>Users</h2>
+			<div class="panel panel-default">
+			  	<div class="panel-body">
+			  		<ul class="list-group">
+			  			<?php if (!empty($users)): ?>
+			  				<?php foreach ($users as $user): ?>
+					  			<li class="list-group-item"><?= $user['firstname'] . ' ' . $user['lastname'] ?></li>
+					  		<?php endforeach; ?>
+					  	<?php else: ?>
+					  		<li class="list-group-item">No users found.</li>
+					  	<?php endif; ?>
+					</ul>
+			  	</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<h2>Tellers</h2>
+			<div class="panel panel-default">
+			  	<div class="panel-body">
+			  		<ul class="list-group">
+					  	<?php if (!empty($tellers)): ?>
+			  				<?php foreach ($tellers as $teller): ?>
+					  			<li class="list-group-item"><?= $teller['name'] ?></li>
+					  		<?php endforeach; ?>
+					  	<?php else: ?>
+					  		<li class="list-group-item">No tellers found.</li>
+					  	<?php endif; ?>
+					</ul>
+			  	</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<h2>Announcements</h2>
+			<div class="panel panel-default">
+			  	<div class="panel-body">
+			  		<ul class="list-group">
+					  	<?php if (!empty($announcements)): ?>
+			  				<?php foreach ($announcements as $announcement): ?>
+					  			<li class="list-group-item"><?= $announcement['title'] ?></li>
+					  		<?php endforeach; ?>
+					  	<?php else: ?>
+					  		<li class="list-group-item">No announcements found.</li>
+					  	<?php endif; ?>
+					</ul>
+			  	</div>
+			</div>
+		</div>
+	</div>
+</div>

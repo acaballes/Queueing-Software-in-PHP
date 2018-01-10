@@ -1,0 +1,44 @@
+<div class="row">
+	<div class="col-lg-3">
+		<div class="alert alert-info">
+			<h3 class="text-center"><strong><?= isset($teller['name']) ? $teller['name'] : '' ?></strong></h3>
+		</div>
+		<div>
+			<h5><strong>Accepted Transactions:</strong></h5>
+			<p><?= $transactions ?></p>
+		</div>
+	</div>
+	<div class="col-lg-6">
+		<h1>Next In-line Priority Numbers</h1>
+		<div class="list-wrapper">
+			<?php if (!empty($data)): ?>
+				<?php foreach($data as $item): ?>
+					<div class="panel panel-default">
+					  	<div class="panel-body">
+				  			<strong>Priority Number <?= $item['is_sc'] == 1 ? 'P' : ''?><?= $item['pnumber'] ?></strong> - <?= $item['transaction_str'] ?>
+				  			<a href="/guest/accepted/<?= $item['id'] ?>" class="btn btn-primary pull-right">Accept</a>
+					  	</div>
+					</div>
+				<?php endforeach; ?>
+				<?php else: ?>
+					<div class="panel panel-default">
+					  	<div class="panel-body">
+					  		<h2>No priority numbers in-line assigned to this teller.</h2>
+					  	</div>
+					  </div>
+			<?php endif; ?>
+		</div>
+	</div>
+</div>
+
+<script>
+	pendingPriorityNumbers();
+	function pendingPriorityNumbers() {
+		setTimeout(function() {
+			$.ajax({ url: '/guest/priorities', success: function(response) {
+				$(".list-wrapper").html(response);
+				pendingPriorityNumbers();
+			}});
+		}, 2000);
+	}
+</script>
