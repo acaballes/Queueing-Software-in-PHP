@@ -79,8 +79,8 @@ Restart the nginx, now you should be ready to go!
 ## Additional Information for the setup
 ``` 
  http://qs.localhost/ - the main user login page
- http://qs.localhost/customer-front - the portal to get customer priority numbe
- http://qs.localhost/queue-front - the live queue priority number monitor
+ http://qs.localhost/customer-front - the portal to get customer priority number
+ http://qs.localhost/queue-front - the live queue priority number on the line monitoring
 ```
 
 ## Database setup
