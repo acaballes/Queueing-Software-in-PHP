@@ -5,8 +5,9 @@
 This is a queueing software in PHP and uses Zend Framework 3 tools to run the system.
 
 ## Pre-requisite
-```PHP 5 and >
-   git ```
+``` PHP 5 and >
+   git
+   ```
 
 ## Installation
 ``` cd to_your_path ```
