@@ -5,19 +5,23 @@
 This is a queueing software in PHP and uses Zend Framework 3 tools to run the system.
 
 ## Pre-requisite
-``` PHP 5 and >
+```
+   PHP 5 and >
    git
    ```
 
 ## Installation
-``` cd to_your_path ```
-``` git clone https://github.com/acaballes/Queueing-Software-in-PHP.git ```
+``` 
+cd to_your_path
+git clone https://github.com/acaballes/Queueing-Software-in-PHP.git
+```
 
 ## Web server setup
 
 ### Apache setup
 
-```apache
+```
+apache
 <VirtualHost *:80>
     ServerName qs.localhost
     DocumentRoot /path/to/qs/public
@@ -73,9 +77,11 @@ server {
 Restart the nginx, now you should be ready to go!
 
 ## Additional Information for the setup
-``` http://qs.localhost/ - the main user login page ```
-``` http://qs.localhost/customer-front - the portal to get customer priority number ```
-``` http://qs.localhost/queue-front - the live queue priority number monitor```
+``` 
+ http://qs.localhost/ - the main user login page
+ http://qs.localhost/customer-front - the portal to get customer priority numbe
+ http://qs.localhost/queue-front - the live queue priority number monitor
+```
 
 ## Database setup
 Create a mysql database and import data/qms_db.sql file sql table structure.
